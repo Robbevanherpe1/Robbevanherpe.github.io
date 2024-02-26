@@ -126,6 +126,10 @@ function render() {
   context.drawImage(images[portfolio.frame], 0, 0);
 }
 
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
+
 window.addEventListener('load', setTimeout(function() {
   
   document.getElementById('loading-screen').style.display = 'none';
