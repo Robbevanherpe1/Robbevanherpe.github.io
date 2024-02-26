@@ -63,7 +63,7 @@ gsap.fromTo(
 );
 
 gsap.fromTo(
-  [".experience-head", ".experience-text"],
+  [".experience-head", ".experience-text",".experience-skills"],
   { opacity: 0 },
   {
     opacity: 1,
@@ -73,7 +73,7 @@ gsap.fromTo(
       end: "33%"
     },
     onComplete: () => {
-      gsap.to([".experience-head", ".experience-text"], { opacity: 0 });
+      gsap.to([".experience-head", ".experience-text",".experience-skills"], { opacity: 0 });
     },
   }
 );

@@ -60,7 +60,16 @@ canvas {
   z-index: 2;
   color: white;
   font-size: 2rem;
-  right: 60%;
-  bottom: 60%;
+  right: 45%;
+  bottom: 40%;
+  transform: translate(-20%, -40%);
+}
+.experience-skills {
+  position: fixed;
+  z-index: 2;
+  color: white;
+  font-size: 2rem;
+  right: 68%;
+  bottom: 20%;
   transform: translate(-20%, -40%);
 }
