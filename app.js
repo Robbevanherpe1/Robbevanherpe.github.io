@@ -126,6 +126,7 @@ function render() {
   context.drawImage(images[portfolio.frame], 0, 0);
 }
 
-window.addEventListener('load', function() {
+window.addEventListener('load', setTimeout(function() {
+  
   document.getElementById('loading-screen').style.display = 'none';
-});
+}, 10000));
