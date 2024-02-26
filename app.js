@@ -125,3 +125,7 @@ function render() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.drawImage(images[portfolio.frame], 0, 0);
 }
+
+window.addEventListener('load', function() {
+  document.getElementById('loading-screen').style.display = 'none';
+});
