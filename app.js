@@ -99,6 +99,22 @@ gsap.fromTo(
   }
 );
 
+gsap.fromTo(
+  [".projects-head", ".projects-text",".projects-project"],
+  { opacity: 0 },
+  {
+    opacity: 1,
+    scrollTrigger: {
+      scrub: 1,
+      start: "63%",
+      end: "68%"
+    },
+    onComplete: () => {
+      gsap.to([".projects-head", ".projects-text",".projects-project"], { opacity: 0 });
+    },
+  }
+);
+
 
 images[0].onload = render;
 

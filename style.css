@@ -56,30 +56,35 @@ canvas {
   }
 }
 
+.projects-head,
 .experience-head {
   position: fixed;
   z-index: 1;
   color: white;
   font-size: 5rem;
-  right: 60%;
+  left: 14%;
   bottom: 70%;
   transform: translate(-20%, -40%);
 }
-.experience-text {
+
+.experience-text,
+.projects-text {
   position: fixed;
   z-index: 1;
   color: white;
   font-size: 2rem;
-  right: 45%;
+  left: 19%;
   bottom: 40%;
   transform: translate(-20%, -40%);
 }
-.experience-skills {
+
+.experience-skills,
+.projects-project {
   position: fixed;
   z-index: 1;
   color: white;
   font-size: 2rem;
-  right: 68%;
+  left: 25%;
   bottom: 20%;
   transform: translate(-20%, -40%);
 }
