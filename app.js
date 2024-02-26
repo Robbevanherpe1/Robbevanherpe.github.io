@@ -44,7 +44,7 @@ gsap.to(portfolio, {
 });
 
 gsap.fromTo(
-  ".ball-text",
+  ".portfolio-title",
   {
     opacity: 0,
   },
@@ -53,14 +53,31 @@ gsap.fromTo(
     scrollTrigger: {
       scrub: 1,
 
-      start: "50%",
-      end: "60%",
+      start: "0%",
+      end: "10%",
     },
     onComplete: () => {
-      gsap.to(".ball-text", { opacity: 0 });
+      gsap.to(".portfolio-title", { opacity: 0 });
     },
   }
 );
+
+gsap.fromTo(
+  [".experience-head", ".experience-text"],
+  { opacity: 0 },
+  {
+    opacity: 1,
+    scrollTrigger: {
+      scrub: 1,
+      start: "25%",
+      end: "33%"
+    },
+    onComplete: () => {
+      gsap.to([".experience-head", ".experience-text"], { opacity: 0 });
+    },
+  }
+);
+
 
 images[0].onload = render;
 

@@ -23,18 +23,19 @@ canvas {
   font-size: 2rem;
 }
 
-.ball-text {
+.portfolio-title {
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   color: white;
   font-size: 5rem;
-  right: 20%;
-  bottom: 40%;
+  right: 50%;
+  bottom: 10%;
   transform: translate(-20%, -40%);
 }
 
 @media screen and (max-width: 1024px) {
-  .ball-text {
+  .portfolio-title,
+  .experience-head {
     font-size: 2rem;
     right: 50%;
     bottom: 25%;
@@ -43,4 +44,23 @@ canvas {
   h1 {
     font-size: 2rem;
   }
+}
+
+.experience-head {
+  position: fixed;
+  z-index: 2;
+  color: white;
+  font-size: 5rem;
+  right: 60%;
+  bottom: 70%;
+  transform: translate(-20%, -40%);
+}
+.experience-text {
+  position: fixed;
+  z-index: 2;
+  color: white;
+  font-size: 2rem;
+  right: 60%;
+  bottom: 60%;
+  transform: translate(-20%, -40%);
 }
