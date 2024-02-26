@@ -22,10 +22,19 @@ canvas {
   align-items: center;
   font-size: 2rem;
 }
+.scroll-info {
+  position: fixed;
+  z-index: 3;
+  color: rgba(255, 255, 255, 0.458);
+  font-size: 2rem;
+  right: 44%;
+  bottom: 5%;
+  transform: translate(-20%, -40%);
+}
 
 .portfolio-title {
   position: fixed;
-  z-index: 3;
+  z-index: 2;
   color: white;
   font-size: 5rem;
   right: 50%;
@@ -35,7 +44,8 @@ canvas {
 
 @media screen and (max-width: 1024px) {
   .portfolio-title,
-  .experience-head {
+  .experience-head,
+  .scroll-info {
     font-size: 2rem;
     right: 50%;
     bottom: 25%;
@@ -48,7 +58,7 @@ canvas {
 
 .experience-head {
   position: fixed;
-  z-index: 2;
+  z-index: 1;
   color: white;
   font-size: 5rem;
   right: 60%;
@@ -57,7 +67,7 @@ canvas {
 }
 .experience-text {
   position: fixed;
-  z-index: 2;
+  z-index: 1;
   color: white;
   font-size: 2rem;
   right: 45%;
@@ -66,7 +76,7 @@ canvas {
 }
 .experience-skills {
   position: fixed;
-  z-index: 2;
+  z-index: 1;
   color: white;
   font-size: 2rem;
   right: 68%;

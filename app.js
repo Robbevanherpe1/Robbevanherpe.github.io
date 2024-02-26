@@ -43,6 +43,27 @@ gsap.to(portfolio, {
   onUpdate: render,
 });
 
+
+
+gsap.fromTo(
+  ".scroll-info",
+  {
+    opacity: 20,
+  },
+  {
+    opacity: 1,
+    scrollTrigger: {
+      scrub: 1,
+
+      start: "0%",
+      end: "1%",
+    },
+    onComplete: () => {
+      gsap.to(".scroll-info", { opacity: 0 });
+    },
+  }
+);
+
 gsap.fromTo(
   ".portfolio-title",
   {
