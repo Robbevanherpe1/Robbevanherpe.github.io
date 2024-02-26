@@ -59,7 +59,7 @@ gsap.fromTo(
       end: "1%",
     },
     onComplete: () => {
-      gsap.to(".scroll-info", { opacity: 0 });
+      gsap.to(".scroll-info", { opacity: 0, });
     },
   }
 );
@@ -78,7 +78,7 @@ gsap.fromTo(
       end: "10%",
     },
     onComplete: () => {
-      gsap.to(".portfolio-title", { opacity: 0 });
+      gsap.to(".portfolio-title", { opacity: 0,});
     },
   }
 );
@@ -89,13 +89,13 @@ gsap.fromTo(
   {
     opacity: 1,
     scrollTrigger: {
-      scrub: 1,
       start: "25%",
-      end: "33%"
-    },
-    onComplete: () => {
-      gsap.to([".experience-head", ".experience-text",".experience-skills"], { opacity: 0 });
-    },
+      end: "37%",
+      toggleActions: "play none none reverse",
+      //onLeaveBack: self => self.disable(),  // Disables the trigger when scrolled back past the start
+      onEnter: () => gsap.set([".experience-head", ".experience-text", ".experience-skills"], { opacity: 1 }),
+      onLeave: () => gsap.set([".experience-head", ".experience-text", ".experience-skills"], { opacity: 0 })
+    }
   }
 );
 
@@ -105,13 +105,13 @@ gsap.fromTo(
   {
     opacity: 1,
     scrollTrigger: {
-      scrub: 1,
       start: "63%",
-      end: "68%"
-    },
-    onComplete: () => {
-      gsap.to([".projects-head", ".projects-text",".projects-project"], { opacity: 0 });
-    },
+      end: "71%",
+      toggleActions: "play none none reverse",
+      //onLeaveBack: self => self.disable(),  // Disables the trigger when scrolled back past the start
+      onEnter: () => gsap.set([".projects-head", ".projects-text", ".projects-project"], { opacity: 1 }),
+      onLeave: () => gsap.set([".projects-head", ".projects-text", ".projects-project"], { opacity: 0 })
+    } 
   }
 );
 
