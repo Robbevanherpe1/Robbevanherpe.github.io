@@ -18,7 +18,7 @@ const currentFrame = (index) => {
       // For indices 99 and above (leading to filenames 0100, 0101, ...)
       paddedIndex = `0${index + 1}`;
   }
-  return `./car1/${paddedIndex}.png`;
+  return `./car/${paddedIndex}.png`;
 };
 
 const images = [];
