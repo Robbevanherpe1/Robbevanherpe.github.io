@@ -141,14 +141,10 @@ window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
 
-window.addEventListener('load', function() {
-  if (!sessionStorage.getItem('alreadyLoaded')) {
-    sessionStorage.setItem('alreadyLoaded', 'true');
-    setTimeout(function() {
-      document.getElementById('loading-screen').style.display = 'none';
-    }, 3000);
-  }
-});
+window.addEventListener('load', setTimeout(function() {
+  
+  document.getElementById('loading-screen').style.display = 'none';
+}, 3000));
 
 
 function pauseScroll() {
