@@ -45,71 +45,58 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 2vw; /* Adjust font size using viewport width */
 }
-.scroll-info {
+
+.portfolio-title,
+.projects-head,
+.experience-head,
+.experience-text,
+.projects-text,
+.experience-skills,
+.projects-project {
   position: fixed;
+  color: white;
+  /* Removing transform here to adjust positioning directly */
+}
+
+.scroll-info {
   z-index: 3;
-  color: rgba(255, 255, 255, 0.458);
-  font-size: 2rem;
-  right: 44%;
-  bottom: 5%;
-  transform: translate(-20%, -40%);
+  font-size: 3vw;
+  right: 41vw;
+  bottom: 5vh;
+  position: fixed;
+  color: rgba(255, 255, 255, 0.549);
 }
 
 .portfolio-title {
-  position: fixed;
   z-index: 2;
-  color: white;
-  font-size: 5rem;
-  right: 50%;
-  bottom: 10%;
-  transform: translate(-20%, -40%);
-}
-
-@media screen and (max-width: 1024px) {
-  .portfolio-title,
-  .experience-head,
-  .scroll-info {
-    font-size: 2rem;
-    right: 50%;
-    bottom: 25%;
-    transform: translate(50%, 50%);
-  }
-  h1 {
-    font-size: 2rem;
-  }
+  font-size: 5vw;
+  left: 26vw;
+  bottom: 18vh;
+  transform: translateX(-50%);
 }
 
 .projects-head,
 .experience-head {
-  position: fixed;
   z-index: 1;
-  color: white;
-  font-size: 5rem;
-  left: 14%;
-  bottom: 70%;
-  transform: translate(-20%, -40%);
+  font-size: 5vw;
+  left: 14vw;
+  bottom: 70vh;
 }
 
 .experience-text,
 .projects-text {
-  position: fixed;
   z-index: 1;
-  color: white;
-  font-size: 2rem;
-  left: 19%;
-  bottom: 40%;
-  transform: translate(-20%, -40%);
+  font-size: 2vw;
+  left: 19vw;
+  bottom: 45vh;
 }
 
 .experience-skills,
 .projects-project {
-  position: fixed;
   z-index: 1;
-  color: white;
-  font-size: 2rem;
-  left: 25%;
-  bottom: 20%;
-  transform: translate(-20%, -40%);
+  font-size: 2vw;
+  left: 30vw;
+  bottom: 20vh;
 }

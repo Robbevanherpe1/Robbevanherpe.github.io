@@ -133,4 +133,4 @@ window.onbeforeunload = function () {
 window.addEventListener('load', setTimeout(function() {
   
   document.getElementById('loading-screen').style.display = 'none';
-}, 10000));
+}, 3000));
