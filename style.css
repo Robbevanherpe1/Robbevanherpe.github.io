@@ -100,3 +100,71 @@ canvas {
   left: 30vw;
   bottom: 20vh;
 }
+
+@media screen {
+  .details {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+  }
+
+  .portfolio-title,
+  .projects-head,
+  .experience-head,
+  .experience-text,
+  .projects-text,
+  .experience-skills,
+  .projects-project {
+    position: fixed;
+    color: white;
+  }
+
+  .scroll-info {
+    z-index: 3;
+    font-size: 5vw;
+    right: 30vw;
+    bottom: 5vh;
+    position: fixed;
+    color: rgba(255, 255, 255, 0.549);
+  }
+
+  .portfolio-title {
+    z-index: 2;
+    font-size: 7vw;
+    left: 32vw;
+    bottom: 18vh;
+    transform: translateX(-50%);
+  }
+
+  .projects-head,
+  .experience-head {
+    z-index: 1;
+    font-size: 7vw;
+    left: 14vw;
+    bottom: 70vh;
+  }
+
+  .experience-text,
+  .projects-text {
+    z-index: 1;
+    font-size: 5vw;
+    left: 19vw;
+    bottom: 50vh;
+  }
+
+  .experience-skills {
+    z-index: 1;
+    font-size: 4vw;
+    left: 40vw;
+    bottom: 38vh;
+  }
+
+  .projects-project {
+    z-index: 1;
+    font-size: 4vw;
+    left: 35vw;
+    bottom: 35vh;
+  }
+}
