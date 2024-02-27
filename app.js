@@ -18,7 +18,8 @@ const currentFrame = (index) => {
       // For indices 99 and above (leading to filenames 0100, 0101, ...)
       paddedIndex = `0${index + 1}`;
   }
-  return `https://ik.imagekit.io/RVH/car-test/${paddedIndex}.png`
+  return `https://ik.imagekit.io/RVH/blender-render/${paddedIndex}.png`
+  //return `https://ik.imagekit.io/RVH/car-test/${paddedIndex}.png`
 };
 
 const images = [];

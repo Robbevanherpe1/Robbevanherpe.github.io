@@ -101,7 +101,7 @@ canvas {
   bottom: 20vh;
 }
 
-@media screen {
+@media screen and (max-width: 768px) {
   .details {
     min-height: 100vh;
     display: flex;
