@@ -4,6 +4,8 @@ canvas.height = window.innerHeight;
 
 const context = canvas.getContext("2d");
 const frameCount = 180;
+let allowScroll = true; 
+const scrollTimeoutDuration = 1000
 
 //const currentFrame = (index) => `./best-ball4/${(index + 1).toString()}.jpg`;
 const currentFrame = (index) => {
@@ -85,7 +87,7 @@ gsap.fromTo(
 );
 
 gsap.fromTo(
-  [".experience-head", ".experience-text",".experience-skills"],
+  [".experience-head", ".experience-text", ".experience-skills"],
   { opacity: 0 },
   {
     opacity: 1,
@@ -93,9 +95,14 @@ gsap.fromTo(
       start: "25%",
       end: "37%",
       toggleActions: "play none none reverse",
-      //onLeaveBack: self => self.disable(),  // Disables the trigger when scrolled back past the start
-      onEnter: () => gsap.set([".experience-head", ".experience-text", ".experience-skills"], { opacity: 1 }),
-      onLeave: () => gsap.set([".experience-head", ".experience-text", ".experience-skills"], { opacity: 0 })
+      onEnter: () => {
+        gsap.set([".experience-head", ".experience-text", ".experience-skills"], { opacity: 1 });
+       
+        pauseScroll(); 
+      },
+      onLeave: () => {
+        gsap.set([".experience-head", ".experience-text", ".experience-skills"], { opacity: 0 }); 
+      }
     }
   }
 );
@@ -110,7 +117,10 @@ gsap.fromTo(
       end: "71%",
       toggleActions: "play none none reverse",
       //onLeaveBack: self => self.disable(),  // Disables the trigger when scrolled back past the start
-      onEnter: () => gsap.set([".projects-head", ".projects-text", ".projects-project"], { opacity: 1 }),
+      onEnter: () => {
+        gsap.set([".projects-head", ".projects-text", ".projects-project"], { opacity: 1 }),
+        pauseScroll(); 
+      },
       onLeave: () => gsap.set([".projects-head", ".projects-text", ".projects-project"], { opacity: 0 })
     } 
   }
@@ -135,3 +145,20 @@ window.addEventListener('load', setTimeout(function() {
   
   document.getElementById('loading-screen').style.display = 'none';
 }, 3000));
+
+
+function pauseScroll() {
+  setTimeout(() => { 
+    if (allowScroll) {
+      allowScroll = false; 
+      document.body.style.overflow = 'hidden'; 
+      
+      setTimeout(() => {
+        allowScroll = true;
+        document.body.style.overflow = ''; 
+      }, scrollTimeoutDuration);
+    }
+  }, 500); 
+}
+
+
