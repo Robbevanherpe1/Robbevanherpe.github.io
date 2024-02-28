@@ -2,6 +2,16 @@ const canvas = document.querySelector(".canvas");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+document.addEventListener("DOMContentLoaded", function() {
+
+  document.body.style.overflowX = 'hidden';
+
+  var element = document.getElementById('yourElementId');
+  if (element) {
+    element.style.overflowX = 'hidden';
+  }
+});
+
 const context = canvas.getContext("2d");
 const frameCount = 180;
 
@@ -43,8 +53,6 @@ gsap.to(portfolio, {
   },
   onUpdate: render,
 });
-
-
 
 gsap.fromTo(
   ".scroll-info",
@@ -96,7 +104,7 @@ gsap.fromTo(
       onEnter: () => {
         gsap.set([".experience-head", ".experience-text", ".experience-skills"], { opacity: 1 });
        
-        pauseScroll(); 
+        setTimeout(pauseScroll, 500);
       },
       onLeave: () => {
         gsap.set([".experience-head", ".experience-text", ".experience-skills"], { opacity: 0 }); 
@@ -117,13 +125,12 @@ gsap.fromTo(
       //onLeaveBack: self => self.disable(),  // Disables the trigger when scrolled back past the start
       onEnter: () => {
         gsap.set([".projects-head", ".projects-text", ".projects-project"], { opacity: 1 }),
-        pauseScroll(); 
+        setTimeout(pauseScroll, 500);
       },
       onLeave: () => gsap.set([".projects-head", ".projects-text", ".projects-project"], { opacity: 0 })
     } 
   }
 );
-
 
 images[0].onload = render;
 
@@ -144,28 +151,17 @@ window.addEventListener('load', setTimeout(function() {
   document.getElementById('loading-screen').style.display = 'none';
 }, 5000));
 
-
-// Hide scrollbar but allow scroll
-document.body.style.overflowY = 'scroll'; // Enable vertical scroll
-document.body.style.scrollbarWidth = 'none'; // For Firefox
-document.body.style.msOverflowStyle = 'none';  // For Internet Explorer and Edge
-
-// For Chrome, Safari
-document.body.style.overflow = 'overlay'; // This makes scrollbar overlay content, not taking space
-document.querySelector('body::-webkit-scrollbar').style.display = 'none';
-
-let allowScroll = true;
-const scrollTimeoutDuration = 1000; // Adjust the timeout duration as needed
+/*window.addEventListener('load', function() {
+  document.getElementById('loading-screen').style.display = 'none';
+});*/
 
 function pauseScroll() {
-  setTimeout(() => { 
-    if (allowScroll) {
-      allowScroll = false; 
-      
-      setTimeout(() => {
-        allowScroll = true;
-      }, scrollTimeoutDuration);
-    }
-  }, 500); 
+  // Disable scrolling
+  document.body.style.overflow = 'hidden';
+  
+  // Enable scrolling after 1 second
+  setTimeout(() => {
+    document.body.style.overflow = '';
+  }, 1000);
 }
 
