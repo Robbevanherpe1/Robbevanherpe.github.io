@@ -124,7 +124,7 @@ canvas {
   .scroll-info {
     z-index: 3;
     font-size: 5vw;
-    right: 30vw;
+    right: 34vw;
     bottom: 5vh;
     position: fixed;
     color: rgba(255, 255, 255, 0.549);

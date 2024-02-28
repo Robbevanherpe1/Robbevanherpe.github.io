@@ -4,24 +4,22 @@ canvas.height = window.innerHeight;
 
 const context = canvas.getContext("2d");
 const frameCount = 180;
-let allowScroll = true; 
-const scrollTimeoutDuration = 1000
 
-//const currentFrame = (index) => `./best-ball4/${(index + 1).toString()}.jpg`;
 const currentFrame = (index) => {
+  const baseUrls = [
+    "https://ik.imagekit.io/RVH/blender-render4/",
+    "https://ik.imagekit.io/RVH/blender-gsm/"
+  ];
+  const urlIndex = window.innerWidth <= 768 ? 1 : 0; // Use car-test images for phone screens
   let paddedIndex;
   if (index < 9) {
-      // For indices 0-8 (leading to filenames 0001-0009)
       paddedIndex = `000${index + 1}`;
   } else if (index < 99) {
-      // For indices 9-98 (leading to filenames 0010-0099)
       paddedIndex = `00${index + 1}`;
   } else {
-      // For indices 99 and above (leading to filenames 0100, 0101, ...)
       paddedIndex = `0${index + 1}`;
   }
-  return `https://ik.imagekit.io/RVH/blender-render4/${paddedIndex}.png`
-  //return `https://ik.imagekit.io/RVH/car-test/${paddedIndex}.png`
+  return `${baseUrls[urlIndex]}${paddedIndex}.png`;
 };
 
 const images = [];
@@ -147,18 +145,27 @@ window.addEventListener('load', setTimeout(function() {
 }, 5000));
 
 
+// Hide scrollbar but allow scroll
+document.body.style.overflowY = 'scroll'; // Enable vertical scroll
+document.body.style.scrollbarWidth = 'none'; // For Firefox
+document.body.style.msOverflowStyle = 'none';  // For Internet Explorer and Edge
+
+// For Chrome, Safari
+document.body.style.overflow = 'overlay'; // This makes scrollbar overlay content, not taking space
+document.querySelector('body::-webkit-scrollbar').style.display = 'none';
+
+let allowScroll = true;
+const scrollTimeoutDuration = 1000; // Adjust the timeout duration as needed
+
 function pauseScroll() {
   setTimeout(() => { 
     if (allowScroll) {
       allowScroll = false; 
-      document.body.style.overflow = 'hidden'; 
       
       setTimeout(() => {
         allowScroll = true;
-        document.body.style.overflow = ''; 
       }, scrollTimeoutDuration);
     }
   }, 500); 
 }
-
 
