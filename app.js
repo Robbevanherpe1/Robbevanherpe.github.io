@@ -12,6 +12,46 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
+let isScrollingAllowed = true;
+const maxScrollHeight = 5000; // Maximum scroll height in pixels where the custom behavior stops
+
+document.addEventListener('wheel', function(event) {
+  if (!isScrollingAllowed || window.scrollY >= maxScrollHeight) {
+    if (window.scrollY >= maxScrollHeight) {
+      // Once the max scroll height is reached, allow normal scrolling
+      return;
+    }
+    event.preventDefault();
+    return;
+  }
+
+  event.preventDefault(); // Prevent normal scroll behavior
+  isScrollingAllowed = false; // Block new scrolls
+  
+  const scrollAmount = 48; // Define how much to scroll
+  const scrollSpeed = 20; // Control the speed; lower is faster
+  let alreadyScrolled = 0; // Track how much we've already scrolled
+
+  // Function to perform the scroll
+  function scrollPage() {
+    if (alreadyScrolled < scrollAmount && window.scrollY < maxScrollHeight) {
+      window.scrollBy(0, scrollAmount);
+      alreadyScrolled++;
+      setTimeout(scrollPage, scrollSpeed);
+    } else {
+      // Re-enable scrolling after a delay, but only if below max height
+      setTimeout(() => {
+        if (window.scrollY < maxScrollHeight) {
+          isScrollingAllowed = true;
+        }
+      }, 500); // 0.5 second delay before allowing another scroll
+    }
+  }
+
+  // Start the scrolling process
+  scrollPage();
+}, { passive: false });
+
 const context = canvas.getContext("2d");
 const frameCount = 180;
 
